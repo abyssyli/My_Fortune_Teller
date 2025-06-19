@@ -6,7 +6,7 @@ lenormand_deck = [
     "13. Child 👶", "14. Fox 🦊", "15. Bear 🐻", "16. Stars ✨", "17. Stork 🕊️", "18. Dog 🐶",
     "19. Tower 🗼", "20. Garden 🌼", "21. Mountain ⛰️", "22. Crossroads 🛣️", "23. Mice 🐭",
     "24. Heart ❤️", "25. Ring 💍", "26. Book 📖", "27. Letter ✉️", "28. Man 👨", "29. Woman 👩",
-    "30. Lily 🕊️", "31. Sun ☀️", "32. Moon 🌙", "33. Key 🔑", "34. Fish 🐟", "35. Anchor ⚓",
+    "30. Lily 🌺", "31. Sun ☀️", "32. Moon 🌙", "33. Key 🔑", "34. Fish 🐟", "35. Anchor ⚓",
     "36. Cross ✝️"
 ]
 
