@@ -6,7 +6,6 @@ In many cultures, symbolic systems such as fortune-telling, tarot, oracles, or o
 This project simulates that effect through a minimal, code-based “cyber divination” system, aiming to study how people may respond to symbolic affirmations or rejections (e.g., “You will succeed”).
 
 ---
-**Title**  
 **Cyber-Divination and Behavioral Suggestion: A Code-Based Experimental System**
 
 **Overview**  
