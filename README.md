@@ -24,3 +24,5 @@ The Python-based system includes:
 
 **Future Extension: LLM Integration**  
 The project reserves an interface for adding LLMs to automatically generate symbolic interpretations based on card results and user questions. This will support future exploration of how AI-generated suggestions and language style can enhance human confidence, motivation, and agency.
+
+上述研究计划仅个人幻想，白日做梦，自不量力，不要笑我XD
