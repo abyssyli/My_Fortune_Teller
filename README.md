@@ -6,9 +6,6 @@ In many cultures, symbolic systems such as fortune-telling, tarot, oracles, or o
 This project simulates that effect through a minimal, code-based “cyber divination” system, aiming to study how people may respond to symbolic affirmations or rejections (e.g., “You will succeed”).
 
 ---
-
-### Proposal
-
 **Title**  
 **Cyber-Divination and Behavioral Suggestion: A Code-Based Experimental System**
 
@@ -23,7 +20,7 @@ The Python-based system includes:
 - Free-text user input  
 - Random card draw (Lenormand-style)  
 - Rule-based feedback (positive / negative / neutral)  
-- User response prompts (e.g., “Start”, “Give up”, “Try again”)  
+- User response prompts  
 - Behavior logging for basic analysis
 
 **Future Extension: LLM Integration**  
