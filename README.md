@@ -27,4 +27,4 @@ The Python-based system includes:
 - Behavior logging for basic analysis
 
 **Future Extension: LLM Integration**  
-The project reserves an interface for adding LLMs to automatically generate symbolic interpretations based on card results and user questions. This will allow future research on AI-generated suggestion, tone, and user trust.
+The project reserves an interface for adding LLMs to automatically generate symbolic interpretations based on card results and user questions. This will support future exploration of how AI-generated suggestions and language style can enhance human confidence, motivation, and agency.
