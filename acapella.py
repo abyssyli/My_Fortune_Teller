@@ -1,5 +1,6 @@
 import random
 
+# Lenormand card deck
 lenormand_deck = [
     "1. Rider 🐎", "2. Clover 🍀", "3. Ship ⛵", "4. House 🏠", "5. Tree 🌳", "6. Clouds ☁️",
     "7. Snake 🐍", "8. Coffin ⚰️", "9. Bouquet 🌸", "10. Scythe 🔪", "11. Whip 🥊", "12. Birds 🐦",
@@ -10,10 +11,42 @@ lenormand_deck = [
     "36. Cross ✝️"
 ]
 
+# Define keywords
+negative_keywords = ["Scythe", "Coffin", "Tower", "Whip", "Snake", "Crossroads"]
+good_ending_keywords = ["Heart", "Ring", "House", "Anchor"]
+
 def draw_lenormand(n=5):
+    question = input("🔮 What is your question? (in English): ")
+    print(f"\n✨ Your question: \"{question}\"\n")
+
     cards = random.sample(lenormand_deck, n)
+    print("🃏 Your cards:")
     for card in cards:
-        print(card)
+        print(f" - {card}")
+
+    # Extract only card names (without number or emoji)
+    card_names = [card.split(". ")[1].split(" ")[0] for card in cards]
+
+    # Final card logic (priority 1)
+    last_card = card_names[-1]
+    if last_card == "Fish" or last_card in negative_keywords:
+        print("\n❌ No, this will not succeed.")
+        return
+
+    # Scythe combo logic (priority 2)
+    if "Scythe" in card_names:
+        idx = card_names.index("Scythe")
+        if idx > 0 and card_names[idx - 1] in good_ending_keywords:
+            print("\n💥 Damn it.")
+            return
+
+    # Positive ending (priority 3)
+    if last_card in good_ending_keywords:
+        print("\n✅ Where there's a will, there's a way.")
+        return
+
+    # Default neutral interpretation
+    print("\n🌈 The outlook is uncertain, but not hopeless.")
 
 if __name__ == "__main__":
     draw_lenormand()
