@@ -15,7 +15,7 @@ lenormand_deck = [
 negative_keywords = ["Scythe", "Coffin", "Tower", "Whip", "Snake", "Crossroads"]
 good_ending_keywords = ["Heart", "Ring", "House", "Anchor"]
 
-# Generate log filename with date
+# Generate log file name
 today_str = datetime.now().strftime("%Y-%m-%d")
 log_file = f"divination_log_{today_str}.txt"
 
@@ -36,7 +36,7 @@ def draw_lenormand(n=5):
         last_card = card_names[-1]
         result = ""
 
-        # Rule-based logic
+        # Rule-based interpretation
         if last_card == "Fish" or last_card in negative_keywords:
             result = "No, this will not succeed."
         elif "Scythe" in card_names:
@@ -53,18 +53,24 @@ def draw_lenormand(n=5):
         print(f"\n🔍 Interpretation: {result}")
         print(f"📄 Result saved to: {log_file}\n")
 
-        # Log to TXT file
+        # Write to log file
         with open(log_file, mode="a", encoding="utf-8") as f:
             f.write(f"=== {datetime.now().isoformat()} ===\n")
             f.write(f"Question: {question}\n")
             f.write(f"Cards: {', '.join(card_names)}\n")
             f.write(f"Result: {result}\n\n")
 
-        # Ask whether to continue
-        choice = input("💬 Ask another question? (y/n): ").strip().lower()
-        if choice != "y":
-            break
+        # Ask if user wants another round
+        while True:
+            choice = input("💬 Ask another question? (y/n): ").strip().lower()
+            if choice == "y":
+                break
+            elif choice == "n":
+                return
+            else:
+                print("⚠️ Please type 'y' to continue or 'n' to exit.")
 
 if __name__ == "__main__":
     draw_lenormand()
+
 
