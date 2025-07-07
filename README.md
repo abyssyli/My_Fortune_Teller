@@ -1,4 +1,10 @@
-## 🔮 Project Proposal
+Update:
+改了三个地方。第一，把问题里的in english去掉，我他妈又不是美国人我凭什么用英文算命?第二，退出改成手动设置，别问完一个问题就退出，你见过谁算命只问一个问题? 我想问几个就问几个，问够了再退出不行? 第三，记录算命结果，输出log文件.
+我真难过，呜呜呜呜呜呜呜呜呜呜
+
+---
+
+## Project Proposal
 
 ### Background
 In many cultures, symbolic systems such as fortune-telling, tarot, oracles, or omens have long been used to provide individuals with emotional support, narrative direction, or perceived control. Even when the mechanism is random or clearly artificial, people often project personal meaning onto the results—and sometimes, that suggestion alone is enough to change behavior.
