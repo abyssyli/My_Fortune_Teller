@@ -1,4 +1,5 @@
 import random
+from datetime import datetime
 
 # Lenormand card deck
 lenormand_deck = [
@@ -11,42 +12,56 @@ lenormand_deck = [
     "36. Cross ✝️"
 ]
 
-# Define keywords
 negative_keywords = ["Scythe", "Coffin", "Tower", "Whip", "Snake", "Crossroads"]
 good_ending_keywords = ["Heart", "Ring", "House", "Anchor"]
 
+log_file = "log.txt"
+
 def draw_lenormand(n=5):
-    question = input("🔮 What is your question? (in English): ")
-    print(f"\n✨ Your question: \"{question}\"\n")
+    while True:
+        question = input("🔮 What is your question?\n> ").strip()
+        if not question:
+            continue
 
-    cards = random.sample(lenormand_deck, n)
-    print("🃏 Your cards:")
-    for card in cards:
-        print(f" - {card}")
+        print(f"\n✨ Your question: \"{question}\"\n")
 
-    # Extract only card names (without number or emoji)
-    card_names = [card.split(". ")[1].split(" ")[0] for card in cards]
+        cards = random.sample(lenormand_deck, n)
+        print("🃏 Your cards:")
+        for card in cards:
+            print(f" - {card}")
 
-    # Final card logic (priority 1)
-    last_card = card_names[-1]
-    if last_card == "Fish" or last_card in negative_keywords:
-        print("\n❌ No, this will not succeed.")
-        return
+        card_names = [card.split(". ")[1].split(" ")[0] for card in cards]
+        last_card = card_names[-1]
+        result = ""
 
-    # Scythe combo logic (priority 2)
-    if "Scythe" in card_names:
-        idx = card_names.index("Scythe")
-        if idx > 0 and card_names[idx - 1] in good_ending_keywords:
-            print("\n💥 Damn it.")
-            return
+        # Rule-based logic
+        if last_card == "Fish" or last_card in negative_keywords:
+            result = "No, this will not succeed."
+        elif "Scythe" in card_names:
+            idx = card_names.index("Scythe")
+            if idx > 0 and card_names[idx - 1] in good_ending_keywords:
+                result = "Damn it."
+            else:
+                result = "The outlook is uncertain, but not hopeless."
+        elif last_card in good_ending_keywords:
+            result = "Where there's a will, there's a way."
+        else:
+            result = "The outlook is uncertain, but not hopeless."
 
-    # Positive ending (priority 3)
-    if last_card in good_ending_keywords:
-        print("\n✅ Where there's a will, there's a way.")
-        return
+        print(f"\n🔍 Interpretation: {result}")
+        print("📄 Result saved.\n")
 
-    # Default neutral interpretation
-    print("\n🌈 The outlook is uncertain, but not hopeless.")
+        # Log to TXT file
+        with open(log_file, mode="a", encoding="utf-8") as f:
+            f.write(f"=== {datetime.now().isoformat()} ===\n")
+            f.write(f"Question: {question}\n")
+            f.write(f"Cards: {', '.join(card_names)}\n")
+            f.write(f"Result: {result}\n\n")
+
+        # Ask whether to continue
+        choice = input("💬 Ask another question? (y/n): ").strip().lower()
+        if choice != "y":
+            break
 
 if __name__ == "__main__":
     draw_lenormand()
