@@ -15,7 +15,9 @@ lenormand_deck = [
 negative_keywords = ["Scythe", "Coffin", "Tower", "Whip", "Snake", "Crossroads"]
 good_ending_keywords = ["Heart", "Ring", "House", "Anchor"]
 
-log_file = "log.txt"
+# Generate log filename with date
+today_str = datetime.now().strftime("%Y-%m-%d")
+log_file = f"divination_log_{today_str}.txt"
 
 def draw_lenormand(n=5):
     while True:
@@ -49,7 +51,7 @@ def draw_lenormand(n=5):
             result = "The outlook is uncertain, but not hopeless."
 
         print(f"\n🔍 Interpretation: {result}")
-        print("📄 Result saved.\n")
+        print(f"📄 Result saved to: {log_file}\n")
 
         # Log to TXT file
         with open(log_file, mode="a", encoding="utf-8") as f:
@@ -65,3 +67,4 @@ def draw_lenormand(n=5):
 
 if __name__ == "__main__":
     draw_lenormand()
+
