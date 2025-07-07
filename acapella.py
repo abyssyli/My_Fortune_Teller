@@ -66,6 +66,7 @@ def draw_lenormand(n=5):
             if choice == "y":
                 break
             elif choice == "n":
+                print("\n🌟 The cards are silent now, but your will speaks louder. Keep going.\n")
                 return
             else:
                 print("⚠️ Please type 'y' to continue or 'n' to exit.")
